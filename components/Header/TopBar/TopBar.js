@@ -22,7 +22,7 @@ function Logo(){
     return(
         <Link href="/">
             <a>
-        <Image src="/logo.png" alt="Reloj"></Image>
+        <Image src="/logo-trinity.png" alt="logo" className="imagen"></Image>
             </a>
         </Link>        
     )
