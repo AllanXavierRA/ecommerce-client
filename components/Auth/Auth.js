@@ -4,7 +4,7 @@ import RegisterForm from "./RegisterForm";
 
 export default function Auth(props){
     const {onCloseModal, setTitleModal} = props
-    const [ showLogin, setShowLogin ] = useState(false);     
+    const [ showLogin, setShowLogin ] = useState(true);     
 
     const showLoginForm = () => {
         setTitleModal("Inicia sesión");
@@ -15,7 +15,10 @@ export default function Auth(props){
         setShowLogin(false)
     };
 
-    return showLogin ? (<LoginForm showRegisterForm={showRegisterForm}/>
+    return showLogin ? (
+    <LoginForm 
+        showRegisterForm={showRegisterForm} 
+        onCloseModal={onCloseModal}/>
     ) : (
     <RegisterForm showLoginForm={showLoginForm}/>);
 }

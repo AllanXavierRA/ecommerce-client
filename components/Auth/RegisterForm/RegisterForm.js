@@ -1,17 +1,27 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Form, Button } from "semantic-ui-react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { toast } from "react-toastify";
 import { registerApi } from "../../../api/user";
 
 export default function LoginForm(props){
     const{showLoginForm} = props;
+    const [loading, setLoading] = useState(false);
 
     const formik = useFormik({
         initialValues: initialValues,
         validationSchema: Yup.object(validationSchema()), 
-        onSubmit: (formData) => {
-            registerApi(formData);
+        onSubmit: async (formData) => {
+            setLoading(true);
+            const response = await registerApi(formData);
+            if(response?.jwt){
+                toast.success("Registro de usuario exitosos.");
+                showLoginForm();
+            }else{
+                toast.error("Error usuario ya existente, intente nuevamente.");
+            }
+            setLoading(false);
         }
     })
     return(
@@ -22,10 +32,10 @@ export default function LoginForm(props){
             <Form.Input name="email" type="text" placeholder="Correo Electrónico" onChange={formik.handleChange} error={formik.errors.email}/>
             <Form.Input name="password" type="password" placeholder="Contraseña" onChange={formik.handleChange} error={formik.errors.password}/>
             <div className="actions">
-                <Button type="button">
+                <Button type="button" onClick={showLoginForm}>
                     Iniciar sesión
                 </Button>
-                <Button type="submit" className="submit">
+                <Button type="submit" className="submit" loading={loading }>
                     Registrar
                 </Button>
             </div>
