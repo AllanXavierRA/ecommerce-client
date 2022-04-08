@@ -2,10 +2,8 @@ import BasicLayout from "../layouts/BasicLayout/BasicLayout"
 
 export default function Home() {
   return (
-    <div className="home">
-      <BasicLayout>
+      <BasicLayout className="home">
       <h1>Next js</h1>
       </BasicLayout>
-    </div>
   )
 }

@@ -1,9 +1,22 @@
 @import "./colors.scss";
 //layouts
 @import "../layouts/BasicLayout/BasicLayout.scss";
+
+//pages
+@import "../pages/account.scss";
+
+
 //components
 @import "../components/Header/Header.scss";
 @import "../components/Header/TopBar/TopBar.scss";
 @import "../components/Header/Menu/Menu.scss";
 @import "../components/modal/BasicModal/BasicModal.scss";
-@import "../components/Auth/LoginForm/loginForm.scss"
+@import "../components/Auth/LoginForm/loginForm.scss";
+@import "../components/Account/ChangeNameForm/ChangeNameForm.scss";
+@import "../components/Account/ChangeEmailForm/ChangeEmailForm.scss";
+@import "../components/Account/ChangePasswordForm/ChangePasswordForm.scss";
+@import "../components/Account/AddressForm/AddressForm.scss";
+@import "../components/Account/ListAddress/ListAddress.scss";
+
+
+
