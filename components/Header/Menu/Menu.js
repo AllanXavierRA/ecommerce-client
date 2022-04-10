@@ -88,7 +88,7 @@ function MenuOptions(props){
                 <Link href="/wishlist">
                 <Menu.Item as="a">
                     <Icon name="heart outline"/>
-                    Lista de deseos
+                    Lista de favoritos
                 </Menu.Item>
                 </Link>
                 <Link href="/account">

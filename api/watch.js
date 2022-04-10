@@ -53,3 +53,15 @@ export async function getWatchByUrlApi(path){
         return null;
     }
 }
+
+export async function searchWatchesApi(title){
+    try{
+        const url = `${BASE_PATH}/watches?_q=${title}`;
+        const response = await fetch(url);
+        const result = await response.json();
+        return result;
+    }catch(error){
+        console.log(error);
+        return null;
+    }
+}

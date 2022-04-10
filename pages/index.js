@@ -7,7 +7,6 @@ import ListWatches from "../components/ListWatches";
 
 export default function Home() {
   const [watches, setWatches] = useState(null);
-  console.log(watches);
   
 
   useEffect(() => {

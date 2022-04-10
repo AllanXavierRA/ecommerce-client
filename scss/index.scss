@@ -6,6 +6,8 @@
 @import "../pages/index.scss";
 @import "../pages/account.scss";
 @import "../pages/reloj/platform.scss";
+@import "../pages/wishlist.scss";
+@import "../pages/search.scss";
 
 
 //components
@@ -22,6 +24,9 @@
 @import "../components/ListWatches/ListWatches.scss";
 @import "../components/Pagination/Pagination.scss";
 @import "../components/Watch/HeaderWatch/HeaderWatch.scss";
+@import "../components/Watch/TabsWatch/TabsWatch.scss";
+@import "../components/Watch/InfoWatch/InfoWatch.scss";
+@import "../components/Watch/CarouselScreenshots/CarouselScreenshots.scss";
 
 
 

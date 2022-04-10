@@ -3,6 +3,7 @@ import BasicLayout from "../layouts/BasicLayout";
 import { useRouter } from "next/router";
 import { getWatchByUrlApi } from "../api/watch";
 import HeaderWatch from "../components/Watch/HeaderWatch";
+import TabsWatch from "../components/Watch/TabsWatch";
 
 export default function Watch(){
     const[watch, setWatch] = useState(null);
@@ -21,7 +22,7 @@ export default function Watch(){
     return (
         <BasicLayout className="watch">
             <HeaderWatch watch={watch}/>
-            <p>Tabs watch</p>
+            <TabsWatch watch={watch}/>
         </BasicLayout>
     );
 }
