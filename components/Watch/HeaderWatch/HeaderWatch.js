@@ -3,6 +3,7 @@ import { Grid, Image, Icon, Button } from "semantic-ui-react";
 import { size } from "lodash";
 import classNames from "classnames";
 import useAuth from "../../../hooks/useAuth";
+import useCart from "../../../hooks/useCart";
 import { isFavoriteApi, addFavoriteApi, deleteFavoriteApi } from "../../../api/favorite";
 
 export default function HeaderWatch(props){
@@ -23,16 +24,20 @@ export default function HeaderWatch(props){
 
 function Info(props){
     const { watch } = props;
-    const { title, sumary, price, discount } = watch;
+    const { title, sumary, price, discount, url } = watch;
     const [isFavorites, setIsFavorites] = useState(false);
     const [reloadFavorite, setReloadFavorite] = useState(false);
     const { auth, logout } = useAuth();
+    const { addProductCart } = useCart();
+    
 
     useEffect(() => {
         (async () => {
+            if(auth){
             const response = await isFavoriteApi(auth.idUser, watch.id, logout);
             if(size(response) > 0) setIsFavorites(true);
             else setIsFavorites(false);
+            }
         })();
         setReloadFavorite(false);
     }, [watch, reloadFavorite]);
@@ -69,7 +74,7 @@ function Info(props){
                     <p>{(price - Math.floor(price*discount) / 100).toFixed(2)}$</p>
                 </div>
             </div>
-            <Button className="header-watch__buy-btn">Comprar</Button>
+            <Button className="header-watch__buy-btn" onClick={() => addProductCart(url)}>Añadir al carrito</Button>
         </div>
         </>
     )
