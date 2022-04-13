@@ -80,12 +80,6 @@ function MenuOptions(props){
         <Menu>
             {user ? (
                 <>
-                <Link href="/orders">
-                <Menu.Item as="a">
-                    <Icon name="shop"/>
-                    Mis Pedidos
-                </Menu.Item>
-                </Link>
                 <Link href="/wishlist">
                 <Menu.Item as="a">
                     <Icon name="heart outline"/>
